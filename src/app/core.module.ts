@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 /* START MY SERVICES IMPORTS */
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
+import { HabitsService } from './services/habits.service';
 import { UserService } from './services/user.service';
 
 /* END MY SERVICES IMPORTS */
@@ -14,6 +15,7 @@ import { AuthenticationService } from './security/authentication.service';
   providers: [
     /* START PROVIDERS */
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
+    HabitsService,
     UserService,
  /* END PROVIDERS */
 

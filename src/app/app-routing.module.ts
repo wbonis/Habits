@@ -13,6 +13,8 @@ const routes: Routes = [
 
     /* START MY VIEWS */
 
+    { path: 'habitses/:id', loadChildren: './pages/habits-edit/habits-edit.module#HabitsEditModule', canActivate: [AuthGuard] },
+    { path: 'habitses', loadChildren: './pages/habits-list/habits-list.module#HabitsListModule', canActivate: [AuthGuard] },
     { path: 'home', loadChildren: './pages/home/home.module#HomeModule', canActivate: [AuthGuard] },
 
  /* END MY VIEWS */

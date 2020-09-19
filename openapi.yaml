@@ -76,6 +76,157 @@ paths:
       responses:
         "200":
           description: OK
+  /habits:
+    post:
+      x-skaffolder-id: 5f661c4867541c707d17e5b7
+      x-skaffolder-name: create
+      x-skaffolder-id-resource: 5f661c4167541c707d17e5b1
+      x-skaffolder-resource: Habits
+      x-skaffolder-crudAction: create
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION create
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION create
+      tags:
+        - Habits
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Habits"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Description:
+                  type: string
+                Name:
+                  type: string
+    get:
+      x-skaffolder-id: 5f661c4867541c707d17e5ba
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 5f661c4167541c707d17e5b1
+      x-skaffolder-resource: Habits
+      x-skaffolder-crudAction: list
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION list
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION list
+      tags:
+        - Habits
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Habits"
+  "/habits/{id}":
+    delete:
+      x-skaffolder-id: 5f661c4867541c707d17e5bb
+      x-skaffolder-name: delete
+      x-skaffolder-id-resource: 5f661c4167541c707d17e5b1
+      x-skaffolder-resource: Habits
+      x-skaffolder-crudAction: delete
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION delete
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION delete
+      tags:
+        - Habits
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    get:
+      x-skaffolder-id: 5f661c4867541c707d17e5b4
+      x-skaffolder-name: get
+      x-skaffolder-id-resource: 5f661c4167541c707d17e5b1
+      x-skaffolder-resource: Habits
+      x-skaffolder-crudAction: get
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION get
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION get
+      tags:
+        - Habits
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id resource
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Habits"
+    post:
+      x-skaffolder-id: 5f661c4867541c707d17e5b5
+      x-skaffolder-name: update
+      x-skaffolder-id-resource: 5f661c4167541c707d17e5b1
+      x-skaffolder-resource: Habits
+      x-skaffolder-crudAction: update
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION update
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION update
+      tags:
+        - Habits
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Habits"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Habits"
   "/user/{id}/changePassword":
     post:
       x-skaffolder-id: 5f661abb67541c707d17e54e
@@ -264,6 +415,28 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
+    Habits:
+      x-skaffolder-id: 5f661c4167541c707d17e5b1
+      x-skaffolder-id-db: 5f661aba67541c707d17e542
+      x-skaffolder-id-entity: 5f661c4167541c707d17e5ae
+      x-skaffolder-url: /habits
+      properties:
+        _id:
+          type: string
+          x-skaffolder-required: true
+        Description:
+          type: string
+          x-skaffolder-id-attr: 5f661c4167541c707d17e5b0
+          x-skaffolder-type: String
+        Name:
+          type: string
+          x-skaffolder-id-attr: 5f661c4167541c707d17e5af
+          x-skaffolder-type: String
+          x-skaffolder-required: true
+      x-skaffolder-relations: 
+      required:
+        - _id
+        - Name
     User:
       x-skaffolder-id: 5f661aba67541c707d17e54b
       x-skaffolder-id-db: 5f661aba67541c707d17e542
@@ -309,6 +482,30 @@ components:
     - x-skaffolder-id: 5f661aba67541c707d17e542
       x-skaffolder-name: Habits_db
   x-skaffolder-page:
+    - x-skaffolder-id: 5f661c4867541c707d17e5b3
+      x-skaffolder-name: HabitsEdit
+      x-skaffolder-url: /habitses/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5f661c4167541c707d17e5b1
+      x-skaffolder-services:
+        - 5f661c4867541c707d17e5b7
+        - 5f661c4867541c707d17e5b5
+        - 5f661c4867541c707d17e5b4
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5f661c4867541c707d17e5b9
+      x-skaffolder-name: HabitsList
+      x-skaffolder-url: /habitses
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5f661c4167541c707d17e5b1
+      x-skaffolder-services:
+        - 5f661c4867541c707d17e5bb
+        - 5f661c4867541c707d17e5ba
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 5f661c4867541c707d17e5b3
+      x-skaffolder-roles: []
     - x-skaffolder-id: 5f661aba67541c707d17e54a
       x-skaffolder-name: Home
       x-skaffolder-url: /home
@@ -316,7 +513,8 @@ components:
       x-skaffolder-resource: 
       x-skaffolder-services: 
       x-skaffolder-nesteds: 
-      x-skaffolder-links: 
+      x-skaffolder-links:
+        - 5f661c4867541c707d17e5b9
       x-skaffolder-roles: []
   x-skaffolder-roles: 
     - x-skaffolder-id: 5f661abb67541c707d17e54d
